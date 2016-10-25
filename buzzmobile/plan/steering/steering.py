@@ -100,7 +100,7 @@ def should_brake(points, lidar_model):
     # must use np.sum because cv2 uses ints to store pixels. So sum(sum()) overflows.
     score = np.sum(np.sum(lidar_model_path)) / float(np.sum(np.sum(immediate_path_mask)))
 
-    return True if score < THRESHHOLD else False
+    return score < THRESHHOLD
 
 def turning_radius(steering_angle):
     """
@@ -173,12 +173,16 @@ def score_tentacle(points, frame):
     return tentacle_score
 
 def pick_tentacle(x_0, y_0, frame):
+    """
+    Returns the tentacle with the highest score provided by score_tentacle,
+    and breaks ties by picking the tentacle with the smallest magnitude angle
+    """
     angles = np.linspace(0.0, MAX_ANGLE, MAX_ANGLE * ANGLE_MULTIPLIER)
     color_frame = cv2.cvtColor(frame, cv2.COLOR_GRAY2RGB)
 
     best_score = -1
     best_points = []
-    best_angle = -1
+    best_angle = 0
 
     for angle in angles:
         if angle == 0:
@@ -190,10 +194,11 @@ def pick_tentacle(x_0, y_0, frame):
         for points in branches:
             score = score_tentacle(points, frame)
 
-            if score > best_score:
+            if score > best_score or (score == best_score and abs(angle) < best_angle):
                 best_score = score
                 best_points = points
-                best_angle = angle
+                best_angle = abs(angle)
+		
 
     return best_points, best_angle
 
@@ -215,3 +220,4 @@ def draw_points(points, color_frame, color, thickness=None):
 
 
 if __name__ == '__main__': steering_node()
+
