@@ -6,9 +6,8 @@ sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net --recv-key 0xB01FA
 sudo apt-get update -qq
 export DEBIAN_FRONTEND=noninteractive # so it apt-get install doesn't ask for confirmation
 sudo apt-get install -y python-catkin-pkg python-rosdep ros-indigo-catkin ros-indigo-ros
-sudo apt-get install python3-venv
 rosdep init
-su -c 'rosdep update' nobody # rosdep update can't be run as sudo
+su -c 'rosdep update' guest # rosdep update can't be run as sudo
 
 # need this to create venv if python was installed without the entire stdlib
 sudo apt-get install python3.4-venv
