@@ -39,20 +39,8 @@ pip install https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.11.
 # Build our project and install rosdeps
 cd ~/catkin_ws/src
 source /opt/ros/indigo/setup.bash
-
-### TEST
-catkin_init_workspace # Create things like ~/catkin_ws/devel/
-# catkin_make install
-# echo $ROS_PACKAGE_PATH
-
+catkin_init_workspace
 rosdep install -y --from-paths . --ignore-src --rosdistro=indigo
-
-source ~/catkin_ws/devel/setup.bash # Allow installing ros dependencies (recognizing buzzmobile)
-echo $ROS_PACKAGE_PATH
-
-# rosdep install buzzmobile # Install ros dependencies for buzzmobile
-### TESTS
-
 cd ~/catkin_ws
 catkin_make -j2 # Actually build
-
+source ~/catkin_ws/devel/setup.bash
