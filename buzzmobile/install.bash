@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# Make sure ROS is installed, do some initialization
+sudo apt-get update -qq
+sudo apt-get install -qq -y python-catkin-pkg python-rosdep ros-indigo-catkin ros-indigo-ros
+rosdep init
+rosdep update
+
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu trusty main" > /etc/apt/sources.list.d/ros-latest.list'
+cd ../
+mkdir -p ~/catkin_ws/src
+mv buzzmobile/ ~/catkin_ws/src
+cd ~/catkin_ws
+echo $(pwd)
+
+# create a python3 virtualenvironment in the buzzmobile directory
+# yes, venv will allow you to create a virtualenv in any directory
+python3 -m venv src/buzzmobile/buzzmobile
+
+# activate the virtualenv we just created
+source src/buzzmobile/buzzmobile/bin/activate
+echo $(pip -V)
+
+# default pip version in a venv is 1.5.4, we want to upgrade to a newer version
+# that supports anylinux wheels, specifically this is for OpenCV and
+# tensorflow, which cannot be installed via a setup.py, and so we manually
+# install them here through their .whl files
+pip install --upgrade pip
+
+# before we install those though, we need to install buzzmobile, as it installs
+# some ROS dependencies, as well as numpy, needed for tf and opencv
+pip install src/buzzmobile/buzzmobile
+
+pip install opencv-python==3.1.0.3
+
+# Unfortunately, tensorflow isn't availible on pypi, so we have to pull it from this very readable link
+pip install https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.11.0rc1-cp34-cp34m-linux_x86_64.whl
+
