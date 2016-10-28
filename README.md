@@ -60,6 +60,7 @@ access the usb ports for gps and lidar. For that, do:
 ```bash
 sudo usermod -aG dialout <YOUR USERNAME>
 ```
+
 You will then need to log in and out again. Simply starting a new terminal is
 not sufficient. The Linux kernel will not refresh groups until the user
 completely logs out and logs in again.
