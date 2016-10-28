@@ -16,7 +16,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update --fix-missing && apt-get -y install apt-utils wget curl iputils-ping vim-nox debconf-utils git software-properties-common bsdmainutils sudo && apt-get clean
 
 # move things to catkin_ws
-RUN cd ../ && mv $CIRCLE_PROJECT_ROOT ~/catkin_ws/src/buzzmobile/ && cd ~/catkin_ws/src
+RUN cd ../ && mv $CIRCLE_PROJECT_ROOT ~/catkin_ws/src/buzzmobile && cd ~/catkin_ws/src
 
 # This image is not meant to be run directly, it has not been compiled yet!
 # In addition, it does not contain any source code, only dependencies
