@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Run pylint on all files
+find . -name "*.py" -exec pylint {} \;

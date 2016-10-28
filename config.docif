@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# This is supposed to be a docker baseimage repository but it doesn't matter
+# because we are not caching. It just needs to be set.
+BASEIMAGE_REPO="arbitrary_value"
+
+# false means we won't cache, and therefore BASEIMAGE_REPO will be ignored.
+PUSH_BASEIMAGE="false"
+
+# The github repository location (case sensitive), for sending status updates to
+GITHUB_REPO='gtagency/buzzmobile'
+
+# The url to point to when a status check is pending.
+PENDING_URL="https://github.com/gtagency/buzzmobile"
+
+############################## Variable Names ##################################
+
+# These are the variables that will hold secrets and such.
+# This can be done through the CircleCi GUI or Travis CI secrets
+
+# Status token is used for updating status
+GH_STATUS_TOKEN_VAR="GH_STATUS"
+# Variable holing the username of the Status Token
+GH_USER_VAR="GH_USER"
+# Variable holing the email of the Status Token
+GH_EMAIL_VAR="GH_EMAIL"
+
+################################# COMMANDS #####################################
+
+# The script to set up the environment, by default ubuntu.
+# YOU WILL NEED TO USE SUDO TO GET ROOT PRIVILEGES HERE
+SETUP_COMMAND="sudo apt-get update && sudo apt-get -y install vim"
+
+# @REQUIRED
+# Commands to run when testing. Each index will have its own status token
+# Commands are in this format
+# COMMAND; SHORT_NAME; DESCRIPTION
+TEST_COMMANDS=()
+TEST_COMMANDS+=( './install;build;Check for installation and catkin_make' )
+TEST_COMMANDS+=( './ci_scripts/style;style;Check for pylint errors and warnings' )
+TEST_COMMANDS+=( './ci_scripts/tests;tests;Check for pytests' )
+
+# Environmental variables to make available to the build environment
+ENV_VARS=()
+ENV_VARS+=("GH_PUSH_TOKEN")  # To be used by autoupdating script
+
+################################################################################

@@ -1,0 +1,41 @@
+machine:
+  services:
+    - docker
+  environment:
+    # In order to allow circleci to push ci statuses to GitHub for pull requests
+    # from external forks, we have to store an access token.  GitHub invalidates
+    # API tokens pushed to repositories for security reasons, so we split it in
+    # half as a workaround.  This is only very minor security risk b/c this
+    # token only allows access to change commit statuses.
+    GITHUB_HAS_GREAT_SECURITY: 4c3019de81f25759c37
+    GH_STATUS: ${GITHUB_HAS_GREAT_SECURITY}ec11705bc9c073c9f62b9
+    GH_EMAIL: github@jgkamat.33mail.com # tbh I hope Jay doesn't mind that I'm giving him spam
+    GH_USER: iRapha
+
+checkout:
+  post:
+      # Make sure that submodules are really, truly up to date
+    - git submodule sync && - git submodule update --init || true && git submodule sync && git submodule update --init
+
+dependencies:
+  pre:
+      # Set build status to pending on start
+    - ./DoCIF/util/maketest.sh --pending
+    - ./DoCIF/commands/buildbaseimage.sh
+      # Actually the test step
+    - ./DoCIF/commands/runtests.sh
+	cache_directories:
+			# This shouldn't actually cache anything because config.docif says not to
+		- ~/.ccache # See $CACHE_DIRECTORIES in config.docif
+
+# The test phase dosen't actually run tests. We need the caching from the deploy step.
+test:
+  override:
+    # Display errors from testing step
+    - ./DoCIF/commands/exit.sh
+
+deployment:
+  github:
+    branch: master
+    commands:
+      - ./DoCIF/commands/deploy.sh # This will run DEPLOY_COMMAND as well
