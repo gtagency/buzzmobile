@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Activate VirtualEnv
-source ~/catkin_ws/bin/activate
+source bin/activate
 
 # Run unit tests
 echo "Tests would go here"
