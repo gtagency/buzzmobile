@@ -26,13 +26,11 @@ source src/buzzmobile/buzzmobile/bin/activate
 # that supports anylinux wheels, specifically this is for OpenCV and
 # tensorflow, which cannot be installed via a setup.py, and so we manually
 # install them here through their .whl files
-echo $(pwd)
-echo $(ls)
 pip install --upgrade pip
 
 # before we install those though, we need to install buzzmobile, as it installs
 # some ROS dependencies, as well as numpy, needed for tf and opencv
-pip install src/buzzmobile/buzzmobile
+pip install -e src/buzzmobile/buzzmobile
 
 # it might be worth trying to get these to install from inside of the
 # buzzmobile setup.py, but that would require dark trickery.
