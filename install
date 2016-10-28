@@ -15,7 +15,7 @@ sudo apt-get -y install python3.4-venv
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu trusty main" > /etc/apt/sources.list.d/ros-latest.list'
 cd ../
 mkdir -p ~/catkin_ws/src
-mv buzzmobile/ ~/catkin_ws/src
+mv project/ ~/catkin_ws/src
 cd ~/catkin_ws
 echo $(pwd)
 
