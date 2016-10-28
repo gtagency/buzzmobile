@@ -30,6 +30,7 @@ directory, installation is
 ```bash
 cd ~/catkin_ws/src
 git clone buzzmobile
+cd buzzmobile
 sudo ./install
 ```
 
@@ -37,9 +38,10 @@ This requires python3.4. If you do not have an existing `catkin_ws` directory,
 installation is
 
 ```bash
-mkdir -p ~.catkin_ws/src
+mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws/src
 git clone buzzmobile
+cd buzzmobile
 sudo ./install
 ```
 
