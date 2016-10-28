@@ -254,3 +254,6 @@ fabric.properties
 #virtualenv files
 lib64
 pyvenv.cfg
+
+# needed for pip install --upgrade pip
+pip-selfcheck.json
