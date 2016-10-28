@@ -29,8 +29,18 @@ GH_USER_VAR="GH_USER"
 # Variable holing the email of the Status Token
 GH_EMAIL_VAR="GH_EMAIL"
 
+# The project root INSIDE THE DOCKER CONTAINER
+# This will act as the 'current directory' within the project
+# This will need to be changed in the dockerfile as well to take effect.
+# (use a custom one Dockerflie where the 'developer' user is set and sets
+# HOME and RUN envs)
+DOCKER_PROJECT_ROOT="/home/developer/catkin_ws/src/buzzmobile"
+
+# The home dir of the user running the docker commands (used for caching when using ~)
+DOCKER_PROJECT_HOME="/home/developer"
+
 # The git clone root INSIDE THE DOCKER CONTAINER
-GIT_CLONE_ROOT="${DOCKER_PROJECT_ROOT}/catkin_ws/src"
+GIT_CLONE_ROOT="${DOCKER_PROJECT_ROOT}"
 
 # A custom dockerfile, for advanced setup
 # This file is in relation to you'r project's root.
@@ -54,6 +64,5 @@ TEST_COMMANDS+=( './ci_scripts/tests;tests;Check for pytests' )
 # Environmental variables to make available to the build environment
 ENV_VARS=()
 ENV_VARS+=("GH_PUSH_TOKEN")  # To be used by autoupdating script
-ENV_VARS+=("CIRCLE_PROJECT_NAME")  # To be used by autoupdating script
 
 ################################################################################
