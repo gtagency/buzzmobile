@@ -30,7 +30,7 @@ GH_USER_VAR="GH_USER"
 GH_EMAIL_VAR="GH_EMAIL"
 
 # The git clone root INSIDE THE DOCKER CONTAINER
-GIT_CLONE_ROOT="~/catkin_ws/src/"
+GIT_CLONE_ROOT="catkin_ws/src/"
 
 ################################# COMMANDS #####################################
 
