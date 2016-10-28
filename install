@@ -20,12 +20,12 @@ cd ~/catkin_ws
 pwd
 ls
 ls src
-ls src/$CIRCLE_PROJECT_REPONAME
-ls src/$CIRCLE_PROJECT_REPONAME/buzzmobile
-python3 -m venv src/$CIRCLE_PROJECT_REPONAME/buzzmobile
+ls src/buzzmobile
+ls src/buzzmobile/buzzmobile
+python3 -m venv src/buzzmobile/buzzmobile
 
 # activate the virtualenv we just created
-source src/$CIRCLE_PROJECT_NAME/buzzmobile/bin/activate
+source src/buzzmobile/buzzmobile/bin/activate
 
 # default pip version in a venv is 1.5.4, we want to upgrade to a newer version
 # that supports anylinux wheels, specifically this is for OpenCV and
