@@ -20,9 +20,9 @@ cd ~/catkin_ws
 pwd
 ls
 ls src
-ls src/$CIRCLE_PROJECT_NAME
-ls src/$CIRCLE_PROJECT_NAME/buzzmobile
-python3 -m venv src/$CIRCLE_PROJECT_NAME/buzzmobile
+ls src/$CIRCLE_PROJECT_REPONAME
+ls src/$CIRCLE_PROJECT_REPONAME/buzzmobile
+python3 -m venv src/$CIRCLE_PROJECT_REPONAME/buzzmobile
 
 # activate the virtualenv we just created
 source src/$CIRCLE_PROJECT_NAME/buzzmobile/bin/activate
