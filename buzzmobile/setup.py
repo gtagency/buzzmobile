@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 #for downloading the packages needed for this project.
 from setuptools import setup, find_packages
 
