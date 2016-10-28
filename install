@@ -30,6 +30,7 @@ pip install --upgrade pip
 
 # before we install those though, we need to install buzzmobile, as it installs
 # some ROS dependencies, as well as numpy, needed for tf and opencv
+ls src/buzzmobile/buzzmobile
 pip install -e src/buzzmobile/buzzmobile
 
 # it might be worth trying to get these to install from inside of the
