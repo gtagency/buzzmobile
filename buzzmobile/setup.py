@@ -15,6 +15,7 @@ setup(
         'googlemaps',
         'numpy',
         'matplotlib',
+        'pylint',
         'pytest',
         'pyyaml',
         'rospkg',
