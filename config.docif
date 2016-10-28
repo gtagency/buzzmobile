@@ -18,6 +18,10 @@ PENDING_URL="https://github.com/gtagency/buzzmobile"
 # These are the variables that will hold secrets and such.
 # This can be done through the CircleCi GUI or Travis CI secrets
 
+DOCKER_PASSWORD_VAR="DOCKER_PASS"
+DOCKER_EMAIL_VAR="DOCKER_EMAIL"
+DOCKER_USER_VAR="DOCKER_USER"
+
 # Status token is used for updating status
 GH_STATUS_TOKEN_VAR="GH_STATUS"
 # Variable holing the username of the Status Token
