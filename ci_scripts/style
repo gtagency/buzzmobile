@@ -4,4 +4,4 @@
 source bin/activate
 
 # Run pylint on all files
-find . -name "*.py" -exec pylint {} \;
+# find . -name "*.py" -exec pylint {} \;
