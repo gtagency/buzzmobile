@@ -10,9 +10,25 @@ checkout:
 dependencies:
   pre:
       # move to correct location
+      # v test
+    - pwd
+    - ls
+      # ^ test
     - mkdir -p ~/catkin_ws/src
+      # v test
+    - pwd
+    - ls
+      # ^ test
     - cd ..
+      # v test
+    - pwd
+    - ls
+      # ^ test
     - mv buzzmobile/ ~/catkin_ws/src/
+      # v test
+    - pwd
+    - ls
+      # ^ test
     - cd ~/catkin_ws/src/buzzmobile
       # test things
     - pwd
