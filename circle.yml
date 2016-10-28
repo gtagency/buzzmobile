@@ -9,6 +9,11 @@ checkout:
 
 dependencies:
   pre:
+      # move to correct location
+    - mkdir -p ~/catkin_ws/src
+    - cd ..
+    - mv buzzmobile/ ~/catkin_ws/src/
+    - cd ~/catkin_ws/src/buzzmobile
       # Set build status to pending on start
     - ./DoCIF/util/maketest.sh --pending
     - ./DoCIF/commands/buildbaseimage.sh
