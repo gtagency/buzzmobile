@@ -3,7 +3,7 @@ FROM ubuntu:14.04
 MAINTAINER George Burdell contactgtagency@gmail.com
 
 # Setup catkin workspace
-ENV CATKIN_WS=/root/ws_moveit
+ENV CATKIN_WS=/root/catkin_ws
 RUN mkdir -p $CATKIN_WS/src
 WORKDIR $CATKIN_WS/src
 
