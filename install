@@ -17,7 +17,6 @@ cd ../
 mkdir -p ~/catkin_ws/src
 mv project/ ~/catkin_ws/src
 cd ~/catkin_ws
-echo $(pwd)
 
 # create a python3 virtualenvironment in the buzzmobile directory
 # yes, venv will allow you to create a virtualenv in any directory
@@ -25,7 +24,6 @@ python3 -m venv src/buzzmobile/buzzmobile
 
 # activate the virtualenv we just created
 source src/buzzmobile/buzzmobile/bin/activate
-echo $(pip -V)
 
 # default pip version in a venv is 1.5.4, we want to upgrade to a newer version
 # that supports anylinux wheels, specifically this is for OpenCV and
