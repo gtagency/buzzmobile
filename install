@@ -12,11 +12,11 @@ su -c 'rosdep update' guest # rosdep update can't be run as sudo
 # need this to create venv if python was installed without the entire stdlib
 sudo apt-get -y install python3.4-venv
 
-sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu trusty main" > /etc/apt/sources.list.d/ros-latest.list'
-cd ../
-mkdir -p ~/catkin_ws/src
-mv project/ ~/catkin_ws/src
+# cd ../
+# mkdir -p ~/catkin_ws/src
+# mv project/ ~/catkin_ws/src
 cd ~/catkin_ws
+ls
 echo $(pwd)
 
 # create a python3 virtualenvironment in the buzzmobile directory
