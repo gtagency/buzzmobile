@@ -32,6 +32,10 @@ GH_EMAIL_VAR="GH_EMAIL"
 # The git clone root INSIDE THE DOCKER CONTAINER
 GIT_CLONE_ROOT="${DOCKER_PROJECT_ROOT}"
 
+# A custom dockerfile, for advanced setup
+# This file is in relation to you'r project's root.
+CUSTOM_DOCKERFILE="./Dockerfile"
+
 ################################# COMMANDS #####################################
 
 # The script to set up the environment, by default ubuntu.
