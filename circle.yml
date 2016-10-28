@@ -14,7 +14,7 @@ dependencies:
     - mv ~/$CIRCLE_PROJECT_REPONAME ~/catkin_ws/src
       # Set build status to pending on start
     - cd ~/catkin_ws/src/$CIRCLE_PROJECT_REPONAME && sudo ./DoCIF/util/maketest.sh --pending
-    - cd ~/catkin_ws/src/$CIRCLE_PROJECT_REPONAME && sudo./DoCIF/commands/buildbaseimage.sh
+    - cd ~/catkin_ws/src/$CIRCLE_PROJECT_REPONAME && sudo ./DoCIF/commands/buildbaseimage.sh
       # Actually the test step
     - cd ~/catkin_ws/src/$CIRCLE_PROJECT_REPONAME && sudo ./DoCIF/commands/runtests.sh
   cache_directories:
