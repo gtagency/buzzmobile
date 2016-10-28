@@ -8,5 +8,14 @@ setup(
     author='gtagency',
     license='MIT',
     keywords='car cars self-driving lidar gps ros',
-    install_requires=['polyline', 'googlemaps', 'numpy']
+    install_requires=[
+        'polyline',
+        'googlemaps',
+        'numpy',
+        'matplotlib',
+        'pytest',
+        'pyyaml',
+        'rospkg',
+        'catkin_pkg'
+        ],
 )

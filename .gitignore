@@ -250,3 +250,7 @@ fabric.properties
 # modules.xml
 # .idea/misc.xml 
 # *.ipr
+
+#virtualenv files
+lib64
+pyvenv.cfg

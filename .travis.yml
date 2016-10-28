@@ -7,30 +7,16 @@ compiler:
     - gcc
 
 before_install:
-    - export ROS_DISTRO=indigo
     - export CI_SOURCE_PATH=$(pwd)
     - export REPOSITORY_NAME=${PWD##*/}
-    - sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu trusty main" > /etc/apt/sources.list.d/ros-latest.list'
-    - wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
-    - sudo apt-get update -qq
-    # actually install ros
-    - sudo apt-get install -qq -y python-catkin-pkg python-rosdep ros-$ROS_DISTRO-catkin ros-$ROS_DISTRO-ros
-    - sudo apt-get install -qq -y ros-$ROS_DISTRO-roscpp ros-$ROS_DISTRO-rospy ros-$ROS_DISTRO-std-msgs ros-$ROS_DISTRO-cv-bridge ros-$ROS_DISTRO-usb-cam
-    # install opencv and other special dependencies
-    - sudo apt-get install -qq ros-indigo-opencv3
-    - sudo rosdep init
-    - rosdep update
 
 install:
-   - cd ../
-   - mkdir -p ~/catkin_ws/src
-   - mv buzzmobile/ ~/catkin_ws/src
-   - cd ~/catkin_ws
+    - ./install
 
 before_script: # Use this to prepare your build for testing e.g. copy database configurations, environment variables, etc.
   - source /opt/ros/$ROS_DISTRO/setup.bash  
+
 script: # All commands must exit with code 0 on success. Anything else is considered failure.
   - catkin_make -j2
-  - sudo pip install -e src/buzzmobile/buzzmobile/
   - source ~/catkin_ws/devel/setup.bash # Allow installing ros dependencies (recognizing buzzmobile)
   - rosdep install buzzmobile # Install ros dependencies for buzzmobile
