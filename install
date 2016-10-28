@@ -14,17 +14,7 @@ sudo apt-get -y install python3.4-venv
 
 # create a python3 virtualenvironment in the buzzmobile directory
 # yes, venv will allow you to create a virtualenv in any directory
-python3 -m venv buzzmobile
-
-
-# maybe we have to venv . not buzzmobile
-# TESTS
-pwd
-ls
-cd buzzmobile
-pwd
-ls
-
+python3 -m venv .
 
 # activate the virtualenv we just created
 source bin/activate
