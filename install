@@ -31,6 +31,8 @@ pip install --upgrade pip
 # some ROS dependencies, as well as numpy, needed for tf and opencv
 pip install src/buzzmobile/buzzmobile
 
+# it might be worth trying to get these to install from inside of the
+# buzzmobile setup.py, but that would require dark trickery.
 pip install opencv-python==3.1.0.3
 
 # Unfortunately, tensorflow isn't availible on pypi, so we have to pull it from this very readable link
