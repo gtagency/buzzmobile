@@ -6,7 +6,7 @@ sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net --recv-key 0xB01FA
 sudo apt-get update -qq
 sudo apt-get install -qq -y python-catkin-pkg python-rosdep ros-indigo-catkin ros-indigo-ros
 rosdep init
-rosdep update
+su -c 'rosdep update' nobody # rosdep update can't be run as sudo
 
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu trusty main" > /etc/apt/sources.list.d/ros-latest.list'
 cd ../
