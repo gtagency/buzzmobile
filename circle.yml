@@ -1,16 +1,6 @@
 machine:
   services:
     - docker
-  environment:
-    # In order to allow circleci to push ci statuses to GitHub for pull requests
-    # from external forks, we have to store an access token.  GitHub invalidates
-    # API tokens pushed to repositories for security reasons, so we split it in
-    # half as a workaround.  This is only very minor security risk b/c this
-    # token only allows access to change commit statuses.
-    GITHUB_HAS_GREAT_SECURITY: 4c3019de81f25759c37
-    GH_STATUS: ${GITHUB_HAS_GREAT_SECURITY}ec11705bc9c073c9f62b9
-    GH_EMAIL: github@jgkamat.33mail.com # tbh I hope Jay doesn't mind that I'm giving him spam
-    GH_USER: iRapha
 
 checkout:
   post:
