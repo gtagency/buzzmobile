@@ -15,13 +15,6 @@ sudo apt-get -y install python3.4-venv
 
 # create a python3 virtualenvironment in the buzzmobile directory
 # yes, venv will allow you to create a virtualenv in any directory
-pwd
-cd ~/catkin_ws
-pwd
-ls
-ls src
-ls src/buzzmobile
-ls src/buzzmobile/buzzmobile
 python3 -m venv src/buzzmobile/buzzmobile
 
 # activate the virtualenv we just created
