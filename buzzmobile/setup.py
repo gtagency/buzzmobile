@@ -11,7 +11,7 @@ setup(
     license='MIT',
     keywords='car cars self-driving lidar gps ros',
     install_requires=[
-        'catkin_pkg'
+        'catkin_pkg',
         'googlemaps',
         'matplotlib',
         'numpy',
