@@ -1,7 +1,16 @@
 #!/bin/bash
 
+echo $PWD
+ls
+sudo apt-cache search ros
+
 # Make sure ROS is installed, do some initialization
 sudo apt-get update -qq
+
+
+sudo apt-cache search ros # TODO(irapha): REMOVEEEE
+
+
 sudo apt-get install -qq -y python-catkin-pkg python-rosdep ros-indigo-catkin ros-indigo-ros
 rosdep init
 rosdep update
