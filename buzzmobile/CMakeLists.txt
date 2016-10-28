@@ -24,7 +24,7 @@ generate_messages(
 )
 catkin_package( INCLUDE_DIRS
                 LIBRARIES buzzmobile
-                CATKIN_DEPENDS roscpp std_msgs sensor_msgs message_runtime cv_bridge
+                CATKIN_DEPENDS roscpp std_msgs sensor_msgs message_runtime cv_bridge rospy
                 DEPENDS system_lib
 )
 include_directories(
