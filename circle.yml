@@ -3,6 +3,14 @@ machine:
     - docker
 
 checkout:
+  pre:
+      # Move into ~/catkin_ws/src
+      - mkdir -p ~/catkin_ws/src
+      - cd ~/catkin_ws/src
+        # v test
+      - pwd
+      - ls
+        # ^ test
   post:
       # Make sure that submodules are really, truly up to date
     - git submodule sync && - git submodule update --init || true && git submodule sync && git submodule update --init
