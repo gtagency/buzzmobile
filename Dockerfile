@@ -2,21 +2,16 @@
 FROM ubuntu:14.04
 MAINTAINER George Burdell contactgtagency@gmail.com
 
-# This dockerimage will serve as a 'static' base for using the DoCIF project
+# Setup catkin workspace
+ENV CATKIN_WS=/root/ws_moveit
+RUN mkdir -p $CATKIN_WS/src
+WORKDIR $CATKIN_WS/src
 
 # Setup apt to be happy with no console input
 ENV DEBIAN_FRONTEND noninteractive
 
-# Use UTF-8, fixes some hard to debug issues
-# This is not workin on cirlceci's current setup. Will reenable once it's working again
-# RUN locale-gen en_US.UTF-8
-# ENV LANG en_US.UTF-8
-
 # setup apt tools and other goodies we want
 RUN apt-get update --fix-missing && apt-get -y install apt-utils wget curl iputils-ping vim-nox debconf-utils git software-properties-common bsdmainutils sudo && apt-get clean
-
-# move things to catkin_ws
-RUN cd ../ && ls | xargs mv {} ~/catkin_ws/src/buzzmobile && cd ~/catkin_ws/src
 
 # This image is not meant to be run directly, it has not been compiled yet!
 # In addition, it does not contain any source code, only dependencies
