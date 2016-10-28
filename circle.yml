@@ -12,19 +12,11 @@ dependencies:
     # Move into ~/catkin_ws/src
     - mkdir -p ~/catkin_ws/src
     - mv ~/$CIRCLE_PROJECT_REPONAME ~/catkin_ws/src
-
-      # v test
-    - pwd
-    - ls
-    - cd ~/catkin_ws/src && pwd
-    - cd ~/catkin_ws/src && ls
-      # ^ test
-
       # Set build status to pending on start
-    - cd ~/catkin_ws/src/$CIRCLE_PROJECT_REPONAME && ./DoCIF/util/maketest.sh --pending
-    - cd ~/catkin_ws/src/$CIRCLE_PROJECT_REPONAME && ./DoCIF/commands/buildbaseimage.sh
+    - cd ~/catkin_ws/src/$CIRCLE_PROJECT_REPONAME && sudo ./DoCIF/util/maketest.sh --pending
+    - cd ~/catkin_ws/src/$CIRCLE_PROJECT_REPONAME && sudo./DoCIF/commands/buildbaseimage.sh
       # Actually the test step
-    - cd ~/catkin_ws/src/$CIRCLE_PROJECT_REPONAME && ./DoCIF/commands/runtests.sh
+    - cd ~/catkin_ws/src/$CIRCLE_PROJECT_REPONAME && sudo ./DoCIF/commands/runtests.sh
   cache_directories:
       # This shouldn't actually cache anything because config.docif says not to
     - ~/.ccache # See $CACHE_DIRECTORIES in config.docif
