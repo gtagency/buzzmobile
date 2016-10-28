@@ -13,6 +13,11 @@ GITHUB_REPO='gtagency/buzzmobile'
 # The url to point to when a status check is pending.
 PENDING_URL="https://github.com/gtagency/buzzmobile"
 
+# A custom dockerfile, for advanced setup
+# See ./commands/Dockerfile for the default dockerfile
+# This file is in relation to you'r project's root.
+CUSTOM_DOCKERFILE="./Dockerfile"
+
 ############################## Variable Names ##################################
 
 # These are the variables that will hold secrets and such.
@@ -30,7 +35,7 @@ GH_USER_VAR="GH_USER"
 GH_EMAIL_VAR="GH_EMAIL"
 
 # The git clone root INSIDE THE DOCKER CONTAINER
-# GIT_CLONE_ROOT="${DOCKER_PROJECT_ROOT}"
+GIT_CLONE_ROOT="${DOCKER_PROJECT_ROOT}"
 
 ################################# COMMANDS #####################################
 
