@@ -11,14 +11,15 @@ setup(
     license='MIT',
     keywords='car cars self-driving lidar gps ros',
     install_requires=[
-        'polyline',
+        'catkin_pkg'
         'googlemaps',
-        'numpy',
         'matplotlib',
+        'numpy',
+        'polyline',
         'pylint',
         'pytest',
+        'python-empy',
         'pyyaml',
         'rospkg',
-        'catkin_pkg'
         ],
 )
