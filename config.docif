@@ -36,7 +36,7 @@ GIT_CLONE_ROOT="~/catkin_ws/src/"
 
 # The script to set up the environment, by default ubuntu.
 # YOU WILL NEED TO USE SUDO TO GET ROOT PRIVILEGES HERE
-SETUP_COMMAND="sudo apt-get update && sudo apt-get -y install vim && mkdir ~/catkin_ws/src/"
+SETUP_COMMAND="sudo apt-get update && sudo apt-get -y install vim && mkdir -p ~/catkin_ws/src/"
 
 # @REQUIRED
 # Commands to run when testing. Each index will have its own status token
