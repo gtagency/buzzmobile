@@ -47,7 +47,9 @@ catkin_init_workspace # Create things like ~/catkin_ws/devel/
 
 rosdep install --from-paths . --ignore-src --rosdistro=indigo
 
-# source ~/catkin_ws/devel/setup.bash # Allow installing ros dependencies (recognizing buzzmobile)
+source ~/catkin_ws/devel/setup.bash # Allow installing ros dependencies (recognizing buzzmobile)
+echo $ROS_PACKAGE_PATH
+
 # rosdep install buzzmobile # Install ros dependencies for buzzmobile
 ### TESTS
 
