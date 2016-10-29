@@ -18,7 +18,7 @@ To get started, be running Ubuntu 14.04 (required for ROS Indigo) with python 3.
 ```bash
 mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws/src
-git clone buzzmobile
+git clone git@github.com:gtagency/buzzmobile.git
 cd buzzmobile
 sudo ./install
 ```
