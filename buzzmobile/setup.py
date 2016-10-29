@@ -20,7 +20,7 @@ setup(
         'pytest==3.0.3',
         'pyyaml==3.12',
         'rospkg==1.0.31',
-        'ds4drv',
+        'ds4drv', # requires apt-get install python-dev
         'empy==3.3.2',
         ],
 )
