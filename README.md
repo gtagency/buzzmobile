@@ -20,7 +20,7 @@ mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws/src
 git clone git@github.com:gtagency/buzzmobile.git
 cd buzzmobile
-sudo ./install
+./install
 ```
 
 If you already have ROS Indigo installed, you can just clone directly into
