@@ -1,13 +1,5 @@
 #!/bin/bash
 
-
-
-#### TODOS
-get all deps we have (including shit likt image_view and rqt and put them in rosdep.
-
-
-
-
 # need this to create venv if python was installed without the entire stdlib
 sudo apt-get -y install python3.4-venv
 
