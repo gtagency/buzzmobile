@@ -30,8 +30,8 @@ If you want to manually install ROS Indigo you can follow the tutorial
 
 The install script will create a virtualenv, install system dependencies
 (including ROS Indigo), install python dependencies, build the package, and
-source all required files. At this point, you should be able to run nodes
-(see 'Running' below).
+source all required files. At this point, you should be able to activate the
+virtualenv and run nodes (see 'Running' below).
 
 It's a good idea to set up some helpful aliases in your `.bashrc`:
 
