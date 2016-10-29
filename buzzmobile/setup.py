@@ -21,5 +21,6 @@ setup(
         'pyyaml==3.12',
         'rospkg==1.0.31',
         'ds4drv',
+        'empy==3.3.2',
         ],
 )
