@@ -13,7 +13,8 @@ A list of available nodes and an overview of the architecture is available [here
 Environment
 -----------
 
-To get started, be running Ubuntu 14.04 (required for ROS Indigo) with python 3.4 installed. Then run:
+To get started, be running Ubuntu 14.04 (required for ROS Indigo) with python
+3.4 installed. Then run:
 
 ```bash
 mkdir -p ~/catkin_ws/src
@@ -31,9 +32,8 @@ If you want to manually install ROS Indigo you can follow the tutorial
 The install script will create a virtualenv, install system dependencies
 (including ROS Indigo), install python dependencies, build the package, and
 source all required files. At this point, you should be able to activate the
-virtualenv and run nodes (see 'Running' below).
-
-It's a good idea to set up some helpful aliases in your `.bashrc`:
+virtualenv and run nodes (see 'Running' below). It will also put these helpful
+aliases in your `.bashrc`:
 
 ```bash
 alias rosinit='source /opt/ros/indigo/setup.bash'
@@ -160,7 +160,8 @@ sudo chmod a+rw /dev/ttyACM0  # Sets read/write permissions for all users, not r
 Recording
 ---------
 
-If you want to record the messages being outputted by certain nodes, you can use rosbag:
+If you want to record the messages being outputted by certain nodes, you can use
+rosbag:
 
 ```
 mkdir ~/bagfiles

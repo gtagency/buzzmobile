@@ -19,6 +19,10 @@
   <build_depend>cv_bridge</build_depend>
   <build_depend>joy</build_depend>
   <build_depend>message_generation</build_depend>
+  <build_depend>rviz</build_depend>
+  <build_depend>image_view</build_depend>
+  <build_depend>rqt</build_depend>
+  <build_depend>rqt_common_plugins</build_depend>
 
   <run_depend>usb_cam</run_depend>
   <run_depend>nmea_navsat_driver</run_depend>
@@ -31,4 +35,8 @@
   <run_depend>message_generation</run_depend>
   <run_depend>joy</run_depend>
   <run_depend>message_runtime</run_depend>
+  <run_depend>rviz</run_depend>
+  <run_depend>image_view</run_depend>
+  <run_depend>rqt</run_depend>
+  <run_depend>rqt_common_plugins</run_depend>
 </package>

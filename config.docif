@@ -50,7 +50,7 @@ CUSTOM_DOCKERFILE="./Dockerfile"
 
 # The script to set up the environment, by default ubuntu.
 # YOU WILL NEED TO USE SUDO TO GET ROOT PRIVILEGES HERE
-SETUP_COMMAND="sudo apt-get update && sudo apt-get -y install vim"
+SETUP_COMMAND="sudo apt-get update && sudo apt-get -y install vim tmux git"
 
 # @REQUIRED
 # Commands to run when testing. Each index will have its own status token

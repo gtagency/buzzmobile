@@ -1,5 +1,13 @@
 #!/bin/bash
 
+
+
+#### TODOS
+get all deps we have (including shit likt image_view and rqt and put them in rosdep.
+
+
+
+
 # need this to create venv if python was installed without the entire stdlib
 sudo apt-get -y install python3.4-venv
 
@@ -34,7 +42,7 @@ pip install https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.11.
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net --recv-key 0xB01FA116
 sudo apt-get update -qq
-sudo apt-get install -y python-catkin-pkg python-rosdep ros-indigo-catkin ros-indigo-ros build-essential
+sudo apt-get install -y python-catkin-pkg python-rosdep ros-indigo-catkin ros-indigo-ros ros-indigo-roslaunch build-essential
 sudo rosdep init
 rosdep update
 
@@ -46,3 +54,9 @@ rosdep install -y --from-paths . --ignore-src --rosdistro=indigo
 cd ~/catkin_ws
 catkin_make -j2 # Actually build
 source ~/catkin_ws/devel/setup.bash
+
+# Set up environment variables
+echo "alias rosinit='source /opt/ros/indigo/setup.bash'" >> ~/.bashrc
+echo "alias rosdevel='source ~/catkin_ws/devel/setup.bash' # needed for autocompletion" >> ~/.bashrc
+echo "rosinit     # put these in your .bashrc too so they run everytime" >> ~/.bashrc
+echo "rosdevel    # you open a new terminal window/tab." >> ~/.bashrc
