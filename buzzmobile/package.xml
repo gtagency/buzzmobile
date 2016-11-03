@@ -23,6 +23,7 @@
   <build_depend>image_view</build_depend>
   <build_depend>rqt</build_depend>
   <build_depend>rqt_common_plugins</build_depend>
+  <build_depend>rostest</build_depend>
 
   <run_depend>usb_cam</run_depend>
   <run_depend>nmea_navsat_driver</run_depend>
@@ -39,4 +40,5 @@
   <run_depend>image_view</run_depend>
   <run_depend>rqt</run_depend>
   <run_depend>rqt_common_plugins</run_depend>
+  <run_depend>rostest</run_depend>
 </package>
