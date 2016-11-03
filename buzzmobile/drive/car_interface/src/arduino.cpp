@@ -78,7 +78,7 @@ void Arduino::read_run() {
       boost::asio::read(port, boost::asio::buffer(buffer, 5));
       float speed = atof(buffer);
       if(odometry_callback != NULL) {
-        odometry_callback(tickCount, angle);
+        odometry_callback(tickCount, angle, speed);
       }
     }
     usleep(10000);
@@ -97,7 +97,7 @@ void Arduino::setHorn(bool on) {
   horn = on ? 1 :0;
 }
 
-void Arduino::setOdometryCallback(void (*callback)(int, float)) {
+void Arduino::setOdometryCallback(void (*callback)(int, float, float)) {
   odometry_callback = callback;
 }
 

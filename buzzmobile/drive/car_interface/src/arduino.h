@@ -21,7 +21,7 @@ public:
   
   void setHorn(bool on);
 
-  void setOdometryCallback(void (*callback)(int, float));
+  void setOdometryCallback(void (*callback)(int, float, float));
 
 private:
   boost::asio::io_service ioservice;
@@ -37,7 +37,7 @@ private:
   void write_run();
   void read_run();
 
-  void (*odometry_callback)(int, float);
+  void (*odometry_callback)(int, float, float);
 
   std::string padded_itoa(int i, int width);
 
