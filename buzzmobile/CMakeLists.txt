@@ -30,7 +30,6 @@ catkin_package( INCLUDE_DIRS
                 DEPENDS system_lib gazebo_ros
 )
 include_directories(
-                    include
                     ${catkin_INCLUDE_DIRS}
                     ${OPENCV_INCLUDE_DIRS}
                     ${GAZEBO_INCLUDE_DIRS}

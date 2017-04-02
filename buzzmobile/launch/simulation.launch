@@ -1,7 +1,7 @@
 <launch>
     <arg name="mission_control" default="false"/>
     <arg name="gzclient" default="false" />
-    <arg name="world" default="$(find buzzmobile)/simulation/models/world/empty.world"/>
+    <arg name="world" default="$(find buzzmobile)/simulation/models/world/straight_road.world"/>
 
     <group ns="buzzmobile">
         <include file="$(find buzzmobile)/launch/includes/params.launch"/>

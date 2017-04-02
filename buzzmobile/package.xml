@@ -49,4 +49,9 @@
   <run_depend>hector_gazebo</run_depend>
   <run_depend>gazebo_ros_control</run_depend>
   <run_depend>joint_state_controller</run_depend>
+
+  <export>
+    <gazebo_ros gazebo_model_path="${prefix}/simulation/models/world/materials"/>
+    <gazebo_ros gazebo_media_path="${prefix}/simulation/models/world/materials"/>
+  </export>
 </package>

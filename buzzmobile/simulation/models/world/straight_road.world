@@ -1,0 +1,93 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+    <world name="straight_road">
+        <scene>
+            <sky>
+                <clouds>
+                    <speed>12</speed>
+                </clouds>
+            </sky>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <background>0.7 0.7 0.7 1.0</background>
+            <shadows>true</shadows>
+            <grid>false</grid>
+            <!--origin_visual>false</origin_visual-->
+        </scene>
+
+        <include>
+            <uri>model://sun</uri>
+        </include>
+
+        <model name="straight_road">
+            <static>true</static>
+            <link name="link">
+              <collision name="collision">
+                <geometry>
+                  <plane>
+                    <normal>0 0 1</normal>
+                    <size>45 8</size>
+                  </plane>
+                </geometry>
+                <surface>
+                  <friction>
+                    <ode>
+                      <mu>100</mu>
+                      <mu2>50</mu2>
+                    </ode>
+                  </friction>
+                </surface>
+              </collision>
+
+              <visual name="road1">
+                <cast_shadows>true</cast_shadows>
+                <geometry>
+                  <plane>
+                    <normal>0 0 1</normal>
+                    <size>15 8</size>
+                  </plane>
+                </geometry>
+                <material>
+                  <script>
+                    <uri>file://../materials/road.material</uri>
+                    <name>Gazebo/road</name>
+                  </script>
+                </material>
+              </visual>
+
+              <visual name="road2">
+                <cast_shadows>true</cast_shadows>
+                <pose>15 0 0 0 0 0</pose>
+                <geometry>
+                  <plane>
+                    <normal>0 0 1</normal>
+                    <size>15 8</size>
+                  </plane>
+                </geometry>
+                <material>
+                  <script>
+                    <uri>file://../materials/road.material</uri>
+                    <name>Gazebo/road</name>
+                  </script>
+                </material>
+              </visual>
+
+              <visual name="road3">
+                <cast_shadows>true</cast_shadows>
+                <pose>30 0 0 0 0 0</pose>
+                <geometry>
+                  <plane>
+                    <normal>0 0 1</normal>
+                    <size>15 8</size>
+                  </plane>
+                </geometry>
+                <material>
+                  <script>
+                    <uri>file://../materials/road.material</uri>
+                    <name>Gazebo/road</name>
+                  </script>
+                </material>
+              </visual>
+            </link>
+          </model>
+    </world>
+</sdf>
