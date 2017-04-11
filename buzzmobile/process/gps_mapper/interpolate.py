@@ -14,7 +14,7 @@ Sigmas = namedtuple('Sigmas', 'sigma_x, sigma_y')
 
 
 def interpolate(points, sigmas, iminfo):
-    """Connects a list of points with a line and applies Gaussian blur.
+    """Connects a list of points with a tangential curve and applies Gaussian blur.
 
     Arguments:
         points: list of (x, y) points that will be plotted on the image
