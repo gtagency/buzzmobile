@@ -13,11 +13,12 @@ ImageInfo = namedtuple('ImageInfo', 'linewidth, height, width')
 Sigmas = namedtuple('Sigmas', 'sigma_x, sigma_y')
 
 
-def interpolate(points, sigmas, iminfo):
-    """Connects a list of points with a tangential curve and applies Gaussian blur.
+def interpolate(current_point, next_point, sigmas, iminfo):
+    """Connects a pair of points with a tangential curve and applies Gaussian blur.
 
     Arguments:
-        points: list of (x, y) points that will be plotted on the image
+        current_point: starting point (i.e. location of the car)
+        next_point: next waypoint
         line_width: width in pixels of line used to interpolate between points
         sigmas: namedtuple of (sigma_x, sigma_y) 
                     Gaussian parameters (higher => more blurry)
