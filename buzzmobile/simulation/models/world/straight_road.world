@@ -2,11 +2,11 @@
 <sdf version="1.4">
     <world name="straight_road">
         <scene>
-            <sky>
+            <!--sky>
                 <clouds>
                     <speed>12</speed>
                 </clouds>
-            </sky>
+            </sky-->
             <ambient>1.0 1.0 1.0 1.0</ambient>
             <background>0.7 0.7 0.7 1.0</background>
             <shadows>true</shadows>
@@ -48,7 +48,7 @@
                 </geometry>
                 <material>
                   <script>
-                    <uri>file://../materials/road.material</uri>
+                    <uri>file://simulation/models/world/materials/road.material</uri>
                     <name>Gazebo/road</name>
                   </script>
                 </material>
@@ -65,7 +65,7 @@
                 </geometry>
                 <material>
                   <script>
-                    <uri>file://../materials/road.material</uri>
+                    <uri>file://simulation/models/world/materials/road.material</uri>
                     <name>Gazebo/road</name>
                   </script>
                 </material>
@@ -82,7 +82,7 @@
                 </geometry>
                 <material>
                   <script>
-                    <uri>file://../materials/road.material</uri>
+                    <uri>file://simulation/models/world/materials/road.material</uri>
                     <name>Gazebo/road</name>
                   </script>
                 </material>

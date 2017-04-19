@@ -1,0 +1,5 @@
+<launch>
+	<include file="$(find buzzmobile)/launch/includes/simulation.launch">
+		<arg name="world" value="$(find buzzmobile)/simulation/models/world/straight_road.world"/>
+	</include>
+</launch>
