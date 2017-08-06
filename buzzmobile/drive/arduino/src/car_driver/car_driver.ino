@@ -12,9 +12,16 @@ const int horn_pin   = 7;
 const int yellow_led = 8;
 const int red_led    = 13;
 const int pot_pin    = A0;
+const int brake_pin = 9;
+const int brake_pot_pin = A1;
 
 Servo motor;
 Servo steer;
+Servo brake;
+
+int currentBrake;
+int desiredBrake = 1;
+
 
 volatile int ticks = 0;
 volatile int count = 0;
@@ -26,6 +33,9 @@ const int minPotVal = 567;
 const int maxPotVal = 740;
 const int midPotVal = 660;
 const float anglePerPotTick = 0.003697731; // rad
+
+const int brakedPosition = 0;
+const int unbrakedPosition = 1;
 
 float desiredSpeed = 0; // m/s
 float desiredAngle = 0; // rad
@@ -69,7 +79,7 @@ void stopAll() {
 
 void setup() {
   Serial.begin(9600);
-  
+
   pinMode(motor_pin, OUTPUT);
   pinMode(steer_pin, OUTPUT);
   pinMode(enc_a, INPUT);
@@ -78,6 +88,8 @@ void setup() {
   pinMode(yellow_led, OUTPUT);
   pinMode(horn_pin, OUTPUT);
   pinMode(estop_pin, INPUT);
+  pinMode(brake_pin, OUTPUT);
+  pinMode(brake_pot_pin, INPUT);
   
   lastTime = millis();
   
@@ -85,6 +97,7 @@ void setup() {
   
   motor.attach(motor_pin);
   steer.attach(steer_pin);
+  brake.attach(brake_pin);
   
   speedController.setOutput(90);
   steerController.setOutput(90);
@@ -106,6 +119,7 @@ void loop() {
     if(Serial.read() == '$') {
       speedController.setDesiredValue(Serial.parseFloat());
       steerController.setDesiredValue(Serial.parseFloat());
+      desiredBrake = Serial.parseInt();
       digitalWrite(horn_pin, Serial.parseInt());
       
       lastCmdTime = millis();
@@ -113,6 +127,7 @@ void loop() {
       char speedStr[5] = {0};
       dtostrf(getSteeringAngle(), 5, 3, steeringStr);
       dtostrf(getSpeed(), 5, 3, speedStr);
+      updateBrake();
       sprintf(retMsg, "$%05i,%s,%s", count, steeringStr, speedStr);
       Serial.println(retMsg);
       count = 0;
@@ -160,4 +175,20 @@ void onEncChange() {
     count++;
   }
 }
+
+void updateBrake() {
+  if (analogRead(brake_pot_pin) >= brakedPosition) {
+    currentBrake = 1; 
+  } else if (analogRead(brake_pot_pin) <= unbrakedPosition) {
+    currentBrake = 0;
+  }
+  if (desiredBrake == 1 && currentBrake != 1) {
+    brake.write(180);
+  } else if (desiredBrake == 0 && currentBrake != 0) {      
+    brake.write(0);     
+  } else if (desiredBrake == currentBrake) {
+    brake.write(0);
+  }
+}
+
 
