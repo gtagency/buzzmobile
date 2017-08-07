@@ -117,9 +117,11 @@ void loop() {
   char retMsg[20] = {0};
   if(Serial.available()) {
     if(Serial.read() == '$') {
-      speedController.setDesiredValue(Serial.parseFloat());
+
+      float newSpeed = Serial.parseFloat();
+      speedController.setDesiredValue(newSpeed);
       steerController.setDesiredValue(Serial.parseFloat());
-      desiredBrake = Serial.parseInt();
+      desiredBrake = (abs(newSpeed) <= 0.01 ? 1 : Serial.parseInt());
       digitalWrite(horn_pin, Serial.parseInt());
       
       lastCmdTime = millis();
@@ -167,7 +169,7 @@ void loop() {
 }
 
 void onEncChange() {
-  if(digitalRead(enc_a) == digitalRead(enc_b)) {
+  if(digitalRead(enc_a) == digitalRead(enc_b)) { 
     ticks--;
     count--;
   } else {
