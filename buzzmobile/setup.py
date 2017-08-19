@@ -4,9 +4,15 @@
 # for downloading the packages needed for this project.
 from setuptools import setup
 
+test_requires = [
+        'pytest==3.0.3',
+        'netifaces==0.10.5',
+        'pyrostest>=0.1.2',
+        ]
+
 setup(
     name='buzzmobile',
-    version='0.3',
+    version='0.3.1',
     url='https://github.com/gtagency/buzzmobile',
     author='gtagency',
     license='MIT',
@@ -18,12 +24,9 @@ setup(
         'numpy==1.11.2',
         'polyline==1.3.1',
         'pylint',
-        'pytest==3.0.3',
         'pyyaml==3.12',
         'rospkg==1.0.41',
         'ds4drv', # requires apt-get install python-dev
         'empy==3.3.2', # required to make catkin_make work
-        'netifaces==0.10.5',  # required for testing
-        'pyrostest>=0.1.2',  # required for testing
-        ],
+        ] + test_requires,
 )
