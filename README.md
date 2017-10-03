@@ -141,6 +141,13 @@ sudo chmod a+rw /dev/ttyACM0  # Sets read/write permissions for all users, not r
 
 If you need to mock a polyline, this tool will be useful: [google polyline util](https://developers.google.com/maps/documentation/utilities/polylineutility)
 
+To run gazebo simulation, do:
+
+```bash
+rosvenv
+roslaunch buzzmobile simulation.launch gzclient:=true
+```
+
 
 Recording
 ---------
