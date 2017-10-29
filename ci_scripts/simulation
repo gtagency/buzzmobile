@@ -14,5 +14,5 @@ source ~/catkin_ws/devel/setup.bash
 cd ~/catkin_ws/src/buzzmobile/buzzmobile
 
 # Run unit tests
-pytest tests/simulation
+python -m pytest tests/simulation
 
