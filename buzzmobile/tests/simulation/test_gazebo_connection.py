@@ -10,8 +10,6 @@ class TestGazeboConnection(RosTest):
         """Test that simulation.launch correctly launches gazebo"""
         with self.check_topic('/clock', Clock) as ct:
             assert(ct.message)
-            print(ct.message)
-        time.sleep(30)
+        time.sleep(20)
         with self.check_topic('/clock', Clock, 20) as ct1:
-            print(ct1.message)
             assert(ct1.message)
