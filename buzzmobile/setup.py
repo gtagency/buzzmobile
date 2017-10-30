@@ -4,7 +4,7 @@
 # for downloading the packages needed for this project.
 from setuptools import setup
 
-test_requires = [
+TEST_REQUIRES = [
         'pytest==3.0.3',
         'netifaces==0.10.5',
         'pyrostest>=0.1.2',
@@ -28,5 +28,5 @@ setup(
         'rospkg==1.0.41',
         'ds4drv', # requires apt-get install python-dev
         'empy==3.3.2', # required to make catkin_make work
-        ] + test_requires,
+        ] + TEST_REQUIRES,
 )
