@@ -12,4 +12,4 @@ cd ~/catkin_ws/src
 rosdep install -y --from-paths ./buzzmobile/buzzmobile --ignore-src --rosdistro=indigo
 
 cd ~/catkin_ws/src/buzzmobile
-pip install -e buzzmobile
+python -m pip install -e buzzmobile

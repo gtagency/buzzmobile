@@ -11,7 +11,10 @@ Publishes:
 import googlemaps
 import rospy
 
-import googlemapskey as gmpskey
+try:
+    import googlemapskey as gmpskey
+except ImportError as e:
+    pass
 
 from datetime import datetime
 from sensor_msgs.msg import NavSatFix
