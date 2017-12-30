@@ -11,7 +11,6 @@
 
   <build_depend>usb_cam</build_depend>
   <build_depend>nmea_navsat_driver</build_depend>
-  <build_depend>hokuyo_node</build_depend>
   <build_depend>roscpp</build_depend>
   <build_depend>rospy</build_depend>
   <build_depend>std_msgs</build_depend>
@@ -29,10 +28,10 @@
   <build_depend>gazebo_ros_control</build_depend>
   <build_depend>joint_state_controller</build_depend>
   <build_depend>effort_controllers</build_depend>
+  <build_depend>urg_node</build_depend>
 
   <run_depend>usb_cam</run_depend>
   <run_depend>nmea_navsat_driver</run_depend>
-  <run_depend>hokuyo_node</run_depend>
   <run_depend>roscpp</run_depend>
   <run_depend>rospy</run_depend>
   <run_depend>std_msgs</run_depend>
@@ -51,6 +50,7 @@
   <run_depend>gazebo_ros_control</run_depend>
   <run_depend>joint_state_controller</run_depend>
   <run_depend>effort_controllers</run_depend>
+  <run_depend>urg_node</run_depend>
 
   <export>
     <gazebo_ros gazebo_model_path="${prefix}/simulation/models/world/materials"/>
