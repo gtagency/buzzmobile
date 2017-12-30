@@ -41,7 +41,7 @@ python -m virtualenv .
 source bin/activate
 
 # remove a name conflict with catkin_make later
-rm local/buzzmobile
+#rm local/buzzmobile
 
 # default pip version in a venv is 1.5.4, we want to upgrade to a newer version
 # that supports anylinux wheels, specifically this is for OpenCV and
@@ -65,37 +65,38 @@ pip install opencv-python==3.1.0.3
 pip install https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.12.1-cp27-none-linux_x86_64.whl
 
 # Make sure ROS is installed, do some initialization
-sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+#sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net --recv-key 0xB01FA116
 safe-apt-get update -qq
-safe-apt-get install -y python-catkin-pkg python-rosdep ros-indigo-catkin ros-indigo-ros ros-indigo-roslaunch build-essential python-tk
+safe-apt-get install -y python-catkin-pkg python-rosdep ros-kinetic-catkin ros-kinetic-ros ros-kinetic-roslaunch build-essential python-tk
 safe-apt-get install -y psmisc
 
 # install pyqt4 for pyqt bindings
-safe-apt-get install -y build-essential cmake libqt4-dev libxml2-dev libxslt1-dev python-dev qtmobility-dev python-pip python-qt4
+safe-apt-get install -y build-essential cmake libqt4-dev libxml2-dev libxslt1-dev python-dev python-pip python-qt4
 
 # pyqt only installs at a system level, which means we need to symlink
-ln -s /usr/lib/python2.7/dist-packages/PyQt4/ ./lib/python2.7/site-packages/
-ln -s /usr/lib/python2.7/dist-packages/sip.so ./lib/python2.7/site-packages/
+#ln -s /usr/lib/python2.7/dist-packages/PyQt4/ ./lib/python2.7/site-packages/
+#ln -s /usr/lib/python2.7/dist-packages/sip.so ./lib/python2.7/site-packages/
 
 # ---------
 # Everything above this point has been installing various python dependencies
 # for things we do. Stuff below this is the ros build and install.
 
-sudo rosdep init # This can only be run once. Possible enhancement, check this
+#sudo rosdep init # This can only be run once. Possible enhancement, check this
 rosdep update
 
 # Build our project and install rosdeps
 cd ~/catkin_ws/src
-source /opt/ros/indigo/setup.bash
-catkin_init_workspace # This can only be run once. Possible enhancement, check this
-rosdep install -y --from-paths ./buzzmobile/buzzmobile --ignore-src --rosdistro=indigo
+source /opt/ros/kinetic/setup.bash
+#source /opt/ros/indigo/setup.bash
+#catkin_init_workspace # This can only be run once. Possible enhancement, check this
+#rosdep install -y --from-paths ./buzzmobile/buzzmobile --ignore-src --rosdistro=indigo
 cd ~/catkin_ws
 catkin_make -j2 # Actually build
 source ~/catkin_ws/devel/setup.bash
 
 # Set up environment variables
-echo "alias rosinit='source /opt/ros/indigo/setup.bash'" >> ~/.bashrc
+echo "alias rosinit='source /opt/ros/kinetic/setup.bash'" >> ~/.bashrc
 echo "alias rosdevel='source ~/catkin_ws/devel/setup.bash' # needed for autocompletion" >> ~/.bashrc
 echo "alias rosvenv='source ~/catkin_ws/src/buzzmobile/bin/activate' # activate venv" >> ~/.bashrc
 echo "rosinit     # put these in your .bashrc too so they run everytime" >> ~/.bashrc
