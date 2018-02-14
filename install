@@ -92,6 +92,7 @@ source /opt/ros/kinetic/setup.bash
 #catkin_init_workspace # This can only be run once. Possible enhancement, check this
 #rosdep install -y --from-paths ./buzzmobile/buzzmobile --ignore-src --rosdistro=indigo
 cd ~/catkin_ws
+rosdep install --from-path src --ignore-src -y
 catkin_make -j2 # Actually build
 source ~/catkin_ws/devel/setup.bash
 
