@@ -16,7 +16,7 @@ A list of available nodes and an overview of the architecture is available
 Environment
 -----------
 
-To get started, be running Ubuntu 14.04 (required for ROS Indigo) with python
+To get started, be running Ubuntu 16.04 (required for ROS Kinetic) with python
 2.7 installed. Then run:
 
 ```bash
@@ -27,13 +27,13 @@ cd buzzmobile
 ./install
 ```
 
-If you already have ROS Indigo installed, you can just clone directly into
+If you already have ROS Kinetic installed, you can just clone directly into
 `~/catkin/src/` and run the install script.
-If you want to manually install ROS Indigo you can follow the tutorial
-[here](http://wiki.ros.org/indigo/Installation/Ubuntu).
+If you want to manually install ROS Kinetic you can follow the tutorial
+[here](http://wiki.ros.org/kinetic/Installation/Ubuntu).
 
 The install script will create a virtualenv, install system dependencies
-(including ROS Indigo), install python dependencies, build the package, and
+(including ROS Kinetic), install python dependencies, build the package, and
 source all required files. It will also put the `rosinit`, `rosdevel` and
 `rosvenv` aliases in your `.bashrc`.
 
@@ -106,9 +106,9 @@ If you want to visualize your nodes, you can run the ROS visualizer (`rviz`),
 messages being published:
 
 ```bash
-rosrun rviz rviz
+rviz 
 rosrun image_view image_view image:=some_imgmsg
-rosrun rqt_gui rqt_gui
+rqt_gui 
 ```
 
 To load the buzzmobile mission control, load `rqt_gui` with the mission control
@@ -166,7 +166,7 @@ If you ever need to add ros dependencies, add them to `buzzmobile/packages.xml` 
 
 ```bash
 cd ~/catkin_ws/src
-rosdep install -y --from-paths ./buzzmobile/buzzmobile --ignore-src --rosdistro=indigo
+rosdep install -y --from-paths ./buzzmobile/buzzmobile --ignore-src --rosdistro=kinetic
 ```
 
 If you need to add python deps, make sure you're in the virtual environment (`rosvenv`), then add the dep to `buzzmobile/setup.py` and do:
