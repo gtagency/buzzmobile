@@ -40,7 +40,7 @@ constexpr double chassis_width = 1.57;
 constexpr double inv_chassis_length = 1.0 / chassis_length;
 constexpr double chassis_width_2 = chassis_width / 2.0;
 //TODO(sahit): this can also be calculated/measured when we have the car
-constexpr double max_torque = 2.5; 
+constexpr double max_torque = 7; 
 
 constexpr double wheel_circumference = 2.0 * M_PI * 0.3302;
 
@@ -79,7 +79,7 @@ constexpr double get_steer_ang(double phi) {
 void fillSteeringPositions(const double set_angle, double &left, double &right) {
     auto center_y = chassis_length * tan( (M_PI_2) - set_angle);
     left = get_steer_ang(atan(inv_chassis_length * (center_y - chassis_width_2)));
-    right = get_steer_ang(atan(inv_chassis_length * (center_y + chassis_width_2)));
+    right = -1.0 * get_steer_ang(atan(inv_chassis_length * (center_y + chassis_width_2)));
 }
 
 void fillWheelSpeeds(const double steering_angle, const double speed, double &left, double &right) {
